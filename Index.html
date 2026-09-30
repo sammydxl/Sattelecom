@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellecom - Satellite Installation</title>
+    <style>
+        /* ---- reset & base ---- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ---- navigation ---- */
+        nav {
+            background: #0b1a2e;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: #3dc2ff;
+        }
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+        .menu a {
+            color: #cbd5e1;
+            font-weight: 500;
+            transition: 0.3s;
+            padding: 0.4rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        .menu a:hover {
+            color: #fff;
+            border-bottom-color: #3dc2ff;
+        }
+
+        /* ---- sections ---- */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: 60vh;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #0b1a2e;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #0b1a2e;
+        }
+        .sub {
+            font-size: 1.2rem;
+            color: #2d4a6b;
+        }
+
+        /* ---- home / menu ---- */
+        #home {
+            text-align: center;
+            background: linear-gradient(135deg, #e8f0fe, #d4e4f7);
+            border-radius: 0 0 30px 30px;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #home h1 {
+            font-size: 3.5rem;
+        }
+        #home .tagline {
+            font-size: 1.4rem;
+            color: #1e3a5f;
+            margin: 1rem 0 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #0b1a2e;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #1d3a5a;
+            transform: scale(1.03);
+        }
+
+        /* ---- services ---- */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .service-item {
+            background: #fff;
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid #3dc2ff;
+        }
+        .service-item h3 {
+            color: #0b1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ---- CEO ---- */
+        .ceo-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            align-items: flex-start;
+            margin-top: 1.5rem;
+        }
+        .ceo-photo {
+            flex: 0 0 220px;
+            text-align: center;
+        }
+        .ceo-photo img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 50%;
+            border: 5px solid #3dc2ff;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+        .ceo-photo .placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #d4e4f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #2d4a6b;
+            border: 5px dashed #3dc2ff;
+            margin: 0 auto;
+        }
+        .ceo-bio {
+            flex: 1;
+            min-width: 260px;
+        }
+        .ceo-bio h3 {
+            font-size: 2rem;
+            color: #0b1a2e;
+            margin-bottom: 0.3rem;
+        }
+        .ceo-bio .title {
+            color: #3dc2ff;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .ceo-bio p {
+            margin-bottom: 1rem;
+        }
+
+        /* ---- payment & customer ---- */
+        .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .payment-options .card {
+            background: #fff;
+            padding: 1.2rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            flex: 1 0 150px;
+        }
+        .contact-detail {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-top: 1rem;
+        }
+
+        /* ---- footer ---- */
+        footer {
+            background: #0b1a2e;
+            color: #a0b8cc;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.95rem;
+        }
+        footer a {
+            color: #3dc2ff;
+        }
+
+        /* ---- responsive tweaks ---- */
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 0.8rem 1rem;
+            }
+            .menu {
+                justify-content: center;
+                gap: 0.8rem;
+            }
+            #home h1 {
+                font-size: 2.4rem;
+            }
+            section {
+                padding: 2.5rem 1rem;
+            }
+            .ceo-wrap {
+                flex-direction: column;
+                align-items: center;
+            }
+            .ceo-photo {
+                flex: 0 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- navigation -->
+    <nav>
+        <div class="logo">Satelle<span>com</div>
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#ceo">CEO</a>
+            <a href="#payment">Payment</a>
+            <a href="#customer">Customer Service</a>
+        </div>
+    </nav>
+
+    <!-- HOME / MENU -->
+    <section id="home">
+        <h1>Satellecom</h1>
+        <p class="tagline">Professional Satellite Installation &amp; Support</p>
+        <p>Reliable, affordable, and expert services across Nigeria.</p>
+        <br>
+        <a href="#services" class="btn">Explore Our Services</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Satellecom</h2>
+        <p class="sub">Your trusted partner for satellite connectivity solutions.</p>
+        <p>Satellecom is a leading satellite installation company dedicated to bridging the digital divide. We provide end‑to‑end services – from site survey and dish alignment to full system integration – ensuring you stay connected wherever you are.</p>
+        <p>With years of experience and a commitment to excellence, we serve individuals, businesses, and institutions with tailored satellite solutions.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <h3>📡 Dish Installation</h3>
+                <p>Professional mounting and alignment of satellite dishes for optimal signal reception.</p>
+            </div>
+            <div class="service-item">
+                <h3>🔧 System Setup</h3>
+                <p>Complete configuration of receivers, decoders, and networking for seamless viewing.</p>
+            </div>
+            <div class="service-item">
+                <h3>📶 Troubleshooting</h3>
+                <p>Diagnose and fix signal issues, cable faults, and equipment malfunctions.</p>
+            </div>
+            <div class="service-item">
+                <h3>📡 Upgrade &amp; Maintenance</h3>
+                <p>Keep your system up‑to‑date with regular maintenance and hardware upgrades.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- CEO -->
+<section id="ceo">
+    <h2>Meet the CEO</h2>
+    <div class="ceo-wrap">
+        <div class="ceo-photo">
+            <!-- Image: change src to your actual file name -->
+            <img src="image.jpg" alt="David Samaila Abashiya" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="placeholder" style="display:none;">
+                <p style="margin-top:0.5rem; font-size:0.85rem; color:#4a6a8a;">
+                    (Place your image as <strong>image.jpg</strong> in the same folder)
+                </p>
+            </div>
+        </div>
+        <div class="ceo-bio">
+            <h3>David Samaila Abashiya</h3>
+            <div class="title">Founder &amp; Chief Executive Officer</div>
+            <p>
+                David Samaila Abashiya is a visionary entrepreneur with over a decade of experience in satellite communications. 
+                He founded Satellecom with a mission to deliver world‑class satellite services to every corner of Nigeria. 
+                Under his leadership, the company has grown into a trusted name, known for integrity, technical expertise, 
+                and customer‑centric solutions.
+            </p>
+            <p>
+                David holds a degree in Computer science and is a certified satellite systems professional. 
+                He is passionate about leveraging technology to empower communities and businesses.
+            </p>
+            <!-- Add more paragraphs here if needed -->
+        </div>
+    </div>
+</section>
+    <!-- PAYMENT -->
+    <section id="payment">
+        <h2>Payment Options</h2>
+        <p>We accept convenient payment methods for your satellite installation needs.</p>
+        <div class="payment-options">
+            <div class="card">🏦 Bank Transfer</div>
+            <div class="card">💳 Debit/Credit Card</div>
+            <div class="card">📱 Mobile Money (USSD)</div>
+            <div class="card">💰 Cash on Service</div>
+        </div>
+        <p style="margin-top:1rem;"><strong>Account Details:</strong> Satellecom Ltd – GTBank 0123456789</p>
+        <p>For invoicing or corporate payments, please contact our accounts team.</p>
+    </section>
+
+    <!-- CUSTOMER SERVICE -->
+    <section id="customer">
+        <h2>Customer Service</h2>
+        <p>We are here to help! Reach out to us for inquiries, support, or to schedule an installation.</p>
+        <div class="contact-detail">
+            <p><strong>📞 Phone:</strong> +234 813 6411 320</p>
+            <p><strong>✉️ Email:</strong> support@satellecom.ng</p>
+            <p><strong>📍 Office:</strong> shop 20 lelna suites,sokoto Road, zuru, Nigeria</p>
+            <p><strong>🕐 Hours:</strong> Mon–Fri 8am – 6pm, Sat 9am – 2pm</p>
+        </div>
+        <p style="margin-top:1rem;">Or use the contact form on our website – we respond within 24 hours.</p>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        &copy; 2026 Satellecom.ng – All rights reserved. | 
+        <a href="#home">Back to top</a>
+    </footer>
+
+    <!-- smooth scroll for nav links (optional) -->
+    <script>
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
